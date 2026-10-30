@@ -166,7 +166,7 @@ const index = `<!doctype html>
 	
 	<footer class="footer">
 	<div class="container">
-		<a href="https://www.cloudflare.com/" class="text-muted">基于Cloudflare-WorkerKV</a>
+		<a href="https://www.cloudflare.com/" class="text-muted">基于Cloudflare-WorkerKV，改版支持API提交</a>
 		<span class="text-muted">站长邮箱: abc@abc.com </span>
 	</div>
 </footer>
