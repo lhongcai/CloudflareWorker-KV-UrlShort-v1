@@ -34,7 +34,7 @@
 
 ## 预览图
 
-![image](https://github.com/user-attachments/assets/25d3c304-3b25-485a-b158-29d795439cbd)
+![image](https://github.com/lhongcai/CloudflareWorker-KV-UrlShort-v1/blob/main/urlshort-v1.webp)
 
 ## 使用说明
 
