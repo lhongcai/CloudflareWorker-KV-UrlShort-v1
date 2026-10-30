@@ -1,6 +1,5 @@
 # 简约短链接生成器
 
-https://cdn.ugreen.hidns.co  演示网站，请自行部署
 
 一个基于 Cloudflare Workers 和 KV 存储的短链接生成服务。
 因为[Cloudflare](https://www.cloudflare.com)的免费套餐有限制，所以不提供预览地址，请自行前往[cloudflare Work](https://dash.cloudflare.com)部署。  
@@ -11,10 +10,9 @@ https://cdn.ugreen.hidns.co  演示网站，请自行部署
 - 🔗 生成短链接
 - 🔒 支持密码保护
 - ⏰ 支持链接有效期设置
-- 🔢 支持访问次数限制
-- 🤖 集成 Cloudflare Turnstile 人机验证
 - 🎨 简洁美观的用户界面
 - ✨ 支持自定义短链接
+- ⚙️ 支持API创建修改
 
 ## 部署步骤
 
@@ -33,15 +31,6 @@ https://cdn.ugreen.hidns.co  演示网站，请自行部署
 
 复制本项目中的[index.js](/index.js)的代码到Cloudflare Worker 点击保存并部署
 
-### 2. 配置 Turnstile
-
-启用人机验证:
-
-1. 在 [Cloudflare Dashboard](https://dash.cloudflare.com/?to=/:account/turnstile) 创建新的 Turnstile site key
-2. 获取 site key 和 secret key
-3. 在 Workers 设置中添加环境变量:
-   - `TURNSTILE_SITE_KEY`: 你的 site key
-   - `TURNSTILE_SECRET`: 你的 secret key
 
 ## 预览图
 
@@ -57,6 +46,31 @@ https://cdn.ugreen.hidns.co  演示网站，请自行部署
    - 访问密码
    - 最大访问次数
 4. 点击生成按钮获取短链接
+
+## API接口
+
+```
+domain_name="域名" # 你部署的Worker URL
+long_url="" # 自定义内容
+short_code="" # 短链接
+password="" # 修改密码
+curl  -Lk "${domain_name}/api" -X POST -d '{
+      "longUrl": "'"${long_url}"'",
+      "shortCode": "'"${short_code}"'",
+      "type": "link",
+      "expiration": "",
+      "burn_after_reading": "false",
+      "password": "'"${password}"'"
+}'
+```
+其中 longUrl 表示 长链接或者文本内容
+shortCode 表示 后缀
+type 表示功能 link是链接 text是文本 html是网页
+expiration 表示有效期（分钟） 整数，留空表示永久有效
+burn_after_reading 表示是否启用阅后即焚 false关闭 true开启
+password 表示后缀密码，下次更新这个后缀的内容需要使用相同的密码才能更新
+
+**配合natmap使用，来提交大内网web服务的访问http地址！**
 
 ## 注意事项
 #### Workers  
