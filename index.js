@@ -9,7 +9,7 @@ const URL_NAME = "shortCode";
 // 短链接键名（用于 API 返回）
 const SHORT_URL_KEY = "shorturl";
 // 静态首页源码链接 （设置首页替换页面，不需要也可以直接注释掉）
- const STATICHTML = "https://raw.githubusercontent.com/Aiayw/CloudflareWorkerKV-UrlShort/main/404.html";
+ const STATICHTML = "https://github.com/lhongcai/CloudflareWorker-KV-UrlShort-v1/blob/main/404.html";
 
 
 const index = `<!doctype html>
