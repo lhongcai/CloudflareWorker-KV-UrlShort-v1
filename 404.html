@@ -35,6 +35,7 @@
 
     .cover-container {
         max-width: 42em;
+				box-shadow: inset 0px 1px 8px 4px rgb(255 255 255 / 40%);
     }
 
     .navbar-brand svg {
@@ -120,16 +121,20 @@
                         <option value="text">Text</option>
                         <option value="html">HTML</option>
                     </select>
-                    <select class="form-control" id="expiration">
-                        <option value="-1">无限制</option>
-                        <option value="burn_after_reading">阅后即焚</option>
-                        <option value="1">1分钟</option>
-                        <option value="10">10分钟</option>
-                        <option value="60">1小时</option>
-                        <option value="1440">1天</option>
-                        <option value="10080">7天</option>
-                        <option value="43200">1个月</option>
-                    </select>
+			<select class="form-control" id="expiration">
+				<option value="43200">1个月</option>
+				<option value="-1">时效：永久有效</option>
+				<option value="1">1分钟</option>
+				<option value="10">10分钟</option>
+				<option value="60">1小时</option>
+				<option value="1440">1天</option>
+				<option value="10080">7天</option>
+				
+			</select>
+			<select class="form-control" id="burn_after_reading">
+				<option value="false">阅后即焚：关闭</option>
+				<option value="true">阅后即焚：开启</option>
+			</select>
                     <input type="text" id="name" placeholder="自定义后缀" class="input-group-text">
                 </div>
             </div>
